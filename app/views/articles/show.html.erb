@@ -1,0 +1,19 @@
+<h1>ブログ詳細ページ</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>タイトル</th>
+    <td><%= @article.title %></td>
+  </tr>
+  <tr>
+    <th>投稿日時</th>
+    <td><%= @article.created_at %></td>
+  </tr>
+  <tr>
+    <th>内容</th>
+    <td><%= @article.content %></td>
+  </tr>
+</table>
+
+<%= link_to 'このブログを編集する', edit_article_path(@article), class: 'btn btn-light' %>
+<%= link_to 'このブログを削除する', @article, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } , class: 'btn btn-danger' %>

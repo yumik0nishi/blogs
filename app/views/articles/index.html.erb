@@ -1,0 +1,27 @@
+<h1>ブログ一覧</h1>
+
+<% if @articles.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>投稿日時</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article %></td>
+          <td><%= article.created_at %></td>
+          <td><%= article.content.truncate(10) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @articles %>
+  </div>
+<% end %>
+
+<%= link_to 'ブログの投稿', new_article_path, class: "btn btn-primary" %>
