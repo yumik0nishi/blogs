@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   
   def index
     if logged_in?
-    @articles = current_user.articles.order(id: :desc).page(params[:page])
+    @articles = current_user.feed_articles.order(id: :desc).page(params[:page])
     end
   end
 
