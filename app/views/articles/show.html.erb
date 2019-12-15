@@ -1,8 +1,8 @@
 <h1>ブログ詳細ページ</h1>
 
     <h2 class="text-center">タイトル： <%= @article.title %><h2>
-    <p style="color: #666666;font-size: 20px; word-break: keep-all;" class="text-right"><%= @article.created_at.strftime("%Y-%m-%d %H:%M") %></h4>
-    <p style="font-size: 20px; word-break: normal;" class="text-left"><%= safe_join(@article.content.split("\n"), tag(:br)) %></p>
+    <p style="color: #666666;font-size: 20px; word-break: break-all;" class="text-right"><%= @article.created_at.strftime("%Y-%m-%d %H:%M") %></h4>
+    <p style="font-size: 20px; word-break: break-all;" class="text-left"><%= safe_join(@article.content.split("\n"), tag(:br)) %></p>
 
 <% if current_user == @article.user %>
   <%= link_to 'このブログを編集する', edit_article_path(@article), class: 'btn btn-light' %>
